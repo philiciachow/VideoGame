@@ -16,8 +16,8 @@ cloud_height = 100
 sprite_width = 50
 sprite_height = 50
 
-brick_width = 150
-brick_height = 50
+brick_width = randint(50,150)
+brick_height = randint(50,150)
 
 nest_width = 100
 nest_height = 50
@@ -46,7 +46,7 @@ sprite = pygame.transform.scale(sprite, (sprite_width,sprite_height))
 brick = pygame.image.load('images/brick.png')
 brick = pygame.transform.scale(brick, (brick_width,brick_height))
 brick_x = randint(0, WIDTH)
-brick_y = randint(0, HEIGHT)
+brick_y = randint(HEIGHT/4, HEIGHT)
 
 
 #Creating a free floating nest (maybe later creat an image of the nest on a brick?)
@@ -59,8 +59,9 @@ while True:
 	screen.fill((135,206,250))
 	for i, pos in enumerate(cloud_list):
 		screen.blit(cloud, (WIDTH - pos[0], pos[1]))
-		cloud_list[i][0] = (pos[0] + 0.5) % (WIDTH + cloud_width) 
+		cloud_list[i][0] = (pos[0] + 1) % (WIDTH + cloud_width) 
 		screen.blit(brick, (brick_x - pos[0] + 5, brick_y - pos[1]))
+		# brick[i] = (pos[0] + 5) % (WIDTH + brick_width)
 
 	for event in pygame.event.get():
 		if event.type == QUIT:
