@@ -9,10 +9,16 @@ from random import randint
 # Constants
 WIDTH = 800
 HEIGHT = 600
+
 cloud_width = 200
 cloud_height = 100
+
+sprite_width = 50
+sprite_height = 50
+
 brick_width = 150
 brick_height = 50
+
 nest_width = 100
 nest_height = 50
 
@@ -32,7 +38,8 @@ cloud_list = [[100,200],[500,150],[350,50],[800,70]]
 
 
 # Sprite definition
-sprite = pygame.image.load('images/sprite.png')
+sprite = pygame.image.load('images/bird2.png')
+sprite = pygame.transform.scale(sprite, (sprite_width,sprite_height))
 
 
 # Creating bricks
