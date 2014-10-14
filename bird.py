@@ -25,16 +25,18 @@ cloud_list = [[100,200],[500,150],[350,50],[800,70]]
 sprite = pygame.image.load('images/sprite.png')
 
 while True:     # main game loop
-    screen.fill((135,206,250))
-    screen.blit(sprite,(WIDTH/2, HEIGHT/2))
-    for i, pos in enumerate(cloud_list):
-        screen.blit(cloud,(WIDTH - pos[0], pos[1]))
-        cloud_list[i][0] = (pos[0] + 1) % (WIDTH + cloud_width) 
+	screen.fill((135,206,250))
+	for i, pos in enumerate(cloud_list):
+		screen.blit(cloud,(WIDTH - pos[0], pos[1]))
+		cloud_list[i][0] = (pos[0] + 1) % (WIDTH + cloud_width) 
 
-    for event in pygame.event.get():
-        if event.type == QUIT:
-            pygame.quit()
-            sys.exit()
-    pygame.display.update()
-    clock.tick(50)
+	for event in pygame.event.get():
+		if event.type == QUIT:
+			pygame.quit()
+			sys.exit()
+
+	screen.blit(sprite,(WIDTH/4, HEIGHT/4))
+
+	pygame.display.update()
+	clock.tick(50)
 
