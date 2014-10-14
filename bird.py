@@ -1,5 +1,7 @@
 ### Video Game
 
+### Creating the bird and clouds
+
 import pygame, sys
 from pygame.locals import *
 
@@ -31,6 +33,11 @@ cloud = pygame.image.load('images/cloud.png')
 cloud = pygame.transform.scale(cloud, (cloud_width,cloud_height))
 cloud_list = [[100,200],[500,150],[350,50],[800,70]]
 
+
+# Sprite definition
+sprite = pygame.image.load('images/sprite.png')
+
+
 # Creating bricks
 brick = pygame.image.load('images/brick.png')
 brick = pygame.transform.scale(brick, (brick_width,brick_height))
@@ -45,13 +52,16 @@ while True:
     screen.fill((135,206,250))
     for i, pos in enumerate(cloud_list):
         screen.blit(cloud, (WIDTH - pos[0], pos[1]))
-        screen.blit(brick, (WIDTH/2, HEIGHT/2))
-        screen.blit(nest, (WIDTH/2, 5*HEIGHT/6))
         cloud_list[i][0] = (pos[0] + 1) % (WIDTH + cloud_width) 
 
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
+
+    screen.blit(sprite,(WIDTH/4, HEIGHT/4))
+    screen.blit(brick, (WIDTH/2, HEIGHT/2))
+    screen.blit(nest, (WIDTH/2, 5*HEIGHT/6))      
+    
     pygame.display.update()
     clock.tick(50)
