@@ -1,6 +1,6 @@
 ### Video Game
 
-### Creating the bird 
+### Creating the bird and clouds
 
 import pygame, sys
 from pygame.locals import *
