@@ -45,7 +45,7 @@ sprite = pygame.transform.scale(sprite, (sprite_width,sprite_height))
 # Creating bricks
 brick = pygame.image.load('images/brick.png')
 brick = pygame.transform.scale(brick, (brick_width,brick_height))
-brick_x = randint(0, WIDTH)
+brick_x = 800 #randint(0, WIDTH)
 brick_y = randint(HEIGHT/4, HEIGHT)
 
 
@@ -61,16 +61,16 @@ while True:
 		screen.blit(cloud, (WIDTH - pos[0], pos[1]))
 		cloud_list[i][0] = (pos[0] + 1) % (WIDTH + cloud_width) 
 		screen.blit(brick, (brick_x - pos[0] + 5, brick_y - pos[1]))
-		# brick[i] = (pos[0] + 5) % (WIDTH + brick_width)
+		# brick[i] = (pos[0] + 5) % (WIDTH + brick_width) 
 
 	for event in pygame.event.get():
 		if event.type == QUIT:
 			pygame.quit()
 			sys.exit()
 
-	screen.blit(sprite,(WIDTH/4, HEIGHT/4))
+    # screen.blit(sprite,(WIDTH/4, HEIGHT/4))
 	# screen.blit(brick, (randint(0,WIDTH), randint(0,HEIGHT))
-	screen.blit(nest, (WIDTH/2, 5*HEIGHT/6))      
+	# screen.blit(nest, (WIDTH/2, 5*HEIGHT/6)) 
 	
 	pygame.display.update()
 	clock.tick(50)
