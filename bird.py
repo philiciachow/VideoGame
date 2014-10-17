@@ -55,22 +55,24 @@ nest = pygame.transform.scale(nest, (nest_width,nest_height))
 
 
 # main game loop
-while True:
-	screen.fill((135,206,250))
-	for i, pos in enumerate(cloud_list):
-		screen.blit(cloud, (WIDTH - pos[0], pos[1]))
-		cloud_list[i][0] = (pos[0] + 1) % (WIDTH + cloud_width) 
-		screen.blit(brick, (brick_x - pos[0] + 5, brick_y - pos[1]))
-		# brick[i] = (pos[0] + 5) % (WIDTH + brick_width) 
+if __name__ == '__main__':
 
-	for event in pygame.event.get():
-		if event.type == QUIT:
-			pygame.quit()
-			sys.exit()
+    while True:
+        screen.fill((135,206,250))
+        for i, pos in enumerate(cloud_list):
+            screen.blit(cloud, (WIDTH - pos[0], pos[1]))
+            cloud_list[i][0] = (pos[0] + 1) % (WIDTH + cloud_width) 
+            screen.blit(brick, (brick_x - pos[0] + 5, brick_y - pos[1]))
+            # brick[i] = (pos[0] + 5) % (WIDTH + brick_width) 
 
-    # screen.blit(sprite,(WIDTH/4, HEIGHT/4))
-	# screen.blit(brick, (randint(0,WIDTH), randint(0,HEIGHT))
-	# screen.blit(nest, (WIDTH/2, 5*HEIGHT/6)) 
-	
-	pygame.display.update()
-	clock.tick(50)
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+
+        screen.blit(sprite,(WIDTH/4, HEIGHT/4))
+        # screen.blit(brick, (randint(0,WIDTH), randint(0,HEIGHT))
+        screen.blit(nest, (WIDTH/2, 5*HEIGHT/6)) 
+        
+        pygame.display.update()
+        clock.tick(50)
