@@ -59,9 +59,11 @@ while True:
 	screen.fill((135,206,250))
 	for i, pos in enumerate(cloud_list):
 		screen.blit(cloud, (WIDTH - pos[0], pos[1]))
-		cloud_list[i][0] = (pos[0] + 1) % (WIDTH + cloud_width) 
+		cloud_list[i][0] = (pos[0] + 1) % (WIDTH + cloud_width)
 		screen.blit(brick, (brick_x - pos[0] + 5, brick_y - pos[1]))
 		# brick[i] = (pos[0] + 5) % (WIDTH + brick_width) 
+		print "OY YOU"
+		print pygame.image
 
 	for event in pygame.event.get():
 		if event.type == QUIT:
