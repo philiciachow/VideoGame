@@ -55,6 +55,7 @@ nest = pygame.transform.scale(nest, (nest_width,nest_height))
 
 
 # main game loop
+<<<<<<< HEAD
 if __name__ == '__main__':
 
     while True:
