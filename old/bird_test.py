@@ -44,17 +44,17 @@ if __name__ == '__main__':
 
     pygame.display.set_caption('Flappy Bird!')
 
-    mygame = model.game()
+    mygame = model.Game()
 
     while True:
         screen.fill((135,206,250))
         
         for cloud in mygame.cloud_list:
-            screen.blit(cloud_img, (WIDTH - cloud.x, cloud.y))
+            screen.blit(cloud_img, (cloud.x, cloud.y))
 
         for brick in mygame.brick_list:
             screen.blit(pygame.transform.scale(brick_img, (brick.width, brick.height)), \
-                    (WIDTH - brick.x, brick.y))
+                    (brick.x, brick.y))
 
         for event in pygame.event.get():
             if event.type == QUIT:
