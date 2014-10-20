@@ -7,7 +7,7 @@
 from random import randint
 
 
-class Thing:
+class Object:
 
     def __init__(self, x, y, width, height):
         self.x = x
@@ -16,21 +16,20 @@ class Thing:
         self.height = height
 
 
-class Sprite(Thing):
+class Sprite(Object):
 
     def __init__(self, x, y, width, height):
-        Thing.__init__(self, x, y, width, height)
+        Object.__init__(self, x, y, width, height)
         self.dead = False
-
 
 
 class Game:
 
     def __init__(self):
-        self.screen = Thing(0,0,800,600)
-        self.cloud_list = [Thing(start_pos[0], start_pos[1], 200, 100) for start_pos in \
+        self.screen = Object(0,0,800,600)
+        self.cloud_list = [Object(start_pos[0], start_pos[1], 200, 100) for start_pos in \
             [[100,200],[500,150],[350,50],[800,70]]]
-        self.brick_list = [Thing(randint(0,800), randint(0,600), randint(50,150), randint(50,150)) for _ in range(10)]
+        self.brick_list = [Object(randint(0,800), randint(0,600), randint(50,150), randint(50,150)) for _ in range(10)]
         self.sprite = Sprite(self.screen.width/4,self.screen.height/4,50,50)
 
 
