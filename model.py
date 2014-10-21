@@ -21,7 +21,7 @@ class GameElement:
     ''' Parent class for game elements: Brick, Cloud, Sprite, and Nest.  We define the attributes: x position, y position, object width, object height, object speed; and the methods: load_image, reset, and update.
     '''
 
-    def __init__(self, pos, size, speed): # Note: pos and size are tuples.
+    def __init__(self, pos, size, speed, image): # Note: pos and size are tuples.
         self.x = pos[0]
         self.y = pos[1]
         self.width = size[0]
@@ -35,35 +35,45 @@ class GameElement:
 
     # def load_image():
 
-    def reset():
+    def reset(self, x,y):
         ''' When game element moves all the way left, loop it back to the right side of the screen.
         '''
-
-        if self.x < -self.width:
+        if self.x < - self.width:
             self.x = screen.width
 
 
     def update():
         ''' Changes x position left by the child speed.
         '''
-
         self.x = self.x - self.speed
 
 
 class Cloud(GameElement):
-    pass
+    def __init__(self, pos, size):
+        super(GameElement, self).__init__(pos, (cloud_width, cloud_height), 'images/cloud.png')
+    
+    def update():
+        cloud.x = cloud.x - 1
+
+    def reset():
+
 
 
 class Brick(GameElement):
-    pass
+    def __init__(self, pos, size):
+        super(GameElement, self).__init__(pos, 'images/brick.png')
 
 
 class Nest(GameElement):
-    pass
+    def __init__(self, pos, size):
+        super(GameElement, self).__init__(pos, (cloud_width, cloud_height), 'images/nest.png')
 
 
 class Sprite(GameElement):
-    pass
+    def __init__(self, pos, size):
+        super(GameElement, self).__init__(pos, (sprite_width, sprite_height), 'images/bird2.png')
+        self.dead = False
+
 
 
 if __name__ == '__main__':
