@@ -17,6 +17,8 @@ nest_height = 50
 
 
 class Screen:
+    ''' Load game element images.
+    '''
 
     def load_image(element):
         # Creating clouds
