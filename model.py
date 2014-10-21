@@ -6,13 +6,12 @@
 # from pygame.locals import *
 from random import randint
 
-
+WIDTH = 800
+HEIGHT = 600
 cloud_width = 200
 cloud_height = 100
-
 sprite_width = 50
 sprite_height = 50
-
 nest_width = 100
 nest_height = 50
 
@@ -48,6 +47,9 @@ class GameElement:
         self.x = self.x - self.speed
 
 
+
+## CHILD CLASSES INHERITING FROM GAMEELEMENT
+
 class Cloud(GameElement):
     def __init__(self, pos, size):
         super(GameElement, self).__init__(pos, (cloud_width, cloud_height), 'images/cloud.png')
@@ -56,7 +58,7 @@ class Cloud(GameElement):
         cloud.x = cloud.x - 1
 
     def reset():
-
+        pass
 
 
 class Brick(GameElement):
