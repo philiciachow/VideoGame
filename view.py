@@ -42,13 +42,18 @@ if __name__ == '__main__':
     pygame.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     clock = pygame.time.Clock()
-
     pygame.display.set_caption('Flappy Bird!')
 
 
     # mygame = model.GameElement()
 
     while True:
+
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+
         screen.fill((135,206,250))
         
         # for cloud in mygame.cloud_list:
@@ -58,10 +63,7 @@ if __name__ == '__main__':
         #     screen.blit(pygame.transform.scale(brick_img, (brick.width, brick.height)), \
         #             (brick.x, brick.y))
 
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                pygame.quit()
-                sys.exit()
+
         #     if event.type == keydown:
         #         if event.key == K_SPACE:
         #             user_action()
