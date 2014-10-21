@@ -2,22 +2,18 @@
 
 import pygame, sys
 from pygame.locals import *     # Heather says don't import star...
-import model
+from model import GameElement
 import controller
 
 
 WIDTH = 800
 HEIGHT = 600
-
 cloud_width = 200
 cloud_height = 100
-
 sprite_width = 50
 sprite_height = 50
-
 nest_width = 100
 nest_height = 50
-
 
 
 # Creating clouds
@@ -31,10 +27,12 @@ sprite_img = pygame.transform.scale(sprite_img, (sprite_width,sprite_height))
 # Creating bricks
 brick_img = pygame.image.load('images/brick.png')
 
-#Creating a free floating nest (maybe later creat an image of the nest on a brick?)
+#Creating a free floating nest (maybe later create an image of the nest on a brick?)
 nest_img = pygame.image.load('images/nest.png')
 nest_img = pygame.transform.scale(nest_img, (nest_width,nest_height))
 
+
+cloud0 = GameElement((WIDTH/2, HEIGHT/2),(100,200),1)
 
 
 if __name__ == '__main__':
@@ -44,33 +42,19 @@ if __name__ == '__main__':
     clock = pygame.time.Clock()
     pygame.display.set_caption('Flappy Bird!')
 
-
-    # mygame = model.GameElement()
-
     while True:
+        
+        screen.fill((135,206,250))
+        screen.blit(cloud_img, (cloud0.x, cloud0.y))
 
+        # Quit statement; allows the screen to stay.
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
 
-        screen.fill((135,206,250))
+
         
-        # for cloud in mygame.cloud_list:
-        #     screen.blit(cloud_img, (cloud.x, cloud.y))
-
-        # for brick in mygame.brick_list:
-        #     screen.blit(pygame.transform.scale(brick_img, (brick.width, brick.height)), \
-        #             (brick.x, brick.y))
-
-
-        #     if event.type == keydown:
-        #         if event.key == K_SPACE:
-        #             user_action()
-
-        # screen.blit(sprite_img,(mygame.sprite.x, mygame.sprite.y))
-        
+                
         pygame.display.update()
         clock.tick(50)
-
-        # mygame.update_game()
