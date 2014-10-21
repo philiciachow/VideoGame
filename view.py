@@ -59,7 +59,9 @@ if __name__ == '__main__':
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
-
+            if event.type == pygame.KEYDOWN:
+                if event.key == K_SPACE:
+                    print "SPACE BARRRR"
 
         
                 
