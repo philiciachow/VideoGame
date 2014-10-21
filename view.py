@@ -1,7 +1,7 @@
 ### Video Game VIEW
 
 import pygame, sys
-from pygame.locals import *
+from pygame.locals import *     # Heather says don't import star...
 import model
 import controller
 
@@ -45,30 +45,30 @@ if __name__ == '__main__':
 
     pygame.display.set_caption('Flappy Bird!')
 
-    mygame = model.Game()
+
+    # mygame = model.GameElement()
 
     while True:
         screen.fill((135,206,250))
         
-        for cloud in mygame.cloud_list:
-            screen.blit(cloud_img, (cloud.x, cloud.y))
+        # for cloud in mygame.cloud_list:
+        #     screen.blit(cloud_img, (cloud.x, cloud.y))
 
-        for brick in mygame.brick_list:
-            screen.blit(pygame.transform.scale(brick_img, (brick.width, brick.height)), \
-                    (brick.x, brick.y))
+        # for brick in mygame.brick_list:
+        #     screen.blit(pygame.transform.scale(brick_img, (brick.width, brick.height)), \
+        #             (brick.x, brick.y))
 
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
-            if event.type == keydown:
-                if event.key == K_SPACE:
-                    user_action()
+        #     if event.type == keydown:
+        #         if event.key == K_SPACE:
+        #             user_action()
 
-        screen.blit(sprite_img,(mygame.sprite.x, mygame.sprite.y))
-        # screen.blit(nest_img, (WIDTH/2, 5*HEIGHT/6)) 
+        # screen.blit(sprite_img,(mygame.sprite.x, mygame.sprite.y))
         
         pygame.display.update()
         clock.tick(50)
 
-        mygame.update_game()
+        # mygame.update_game()
