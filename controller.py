@@ -28,3 +28,7 @@ def move(element, distance, direction):
         element.y -= distance
     if direction == 'down':
         element.y += distance
+
+
+def checkBoundaries(element, x):
+    pass
