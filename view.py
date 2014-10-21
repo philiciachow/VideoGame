@@ -32,6 +32,7 @@ nest_img = pygame.image.load('images/nest.png')
 nest_img = pygame.transform.scale(nest_img, (nest_width,nest_height))
 
 
+sprite = GameElement((WIDTH/6,HEIGHT/2),(sprite_width,sprite_height),0)
 cloud0 = GameElement((WIDTH/2, HEIGHT/2),(100,200),1)
 
 
@@ -44,7 +45,13 @@ if __name__ == '__main__':
 
     while True:
         
+        # Render blue screen.
         screen.fill((135,206,250))
+
+        # Render sprite.
+        screen.blit(sprite_img, (sprite.x, sprite.y))
+
+        # Render single cloud appear.
         screen.blit(cloud_img, (cloud0.x, cloud0.y))
 
         # Quit statement; allows the screen to stay.
