@@ -2,7 +2,7 @@
 
 import pygame, sys
 from pygame.locals import *     # Heather says don't import star...
-from model import GameElement
+import model
 import controller
 
 
@@ -27,8 +27,8 @@ class Screen:
 
 
 
-sprite = GameElement((WIDTH/6,HEIGHT/2),(sprite_width,sprite_height),0)
-cloud0 = GameElement((WIDTH/2, HEIGHT/2),(100,200),1)
+sprite = model.Sprite((WIDTH/6,HEIGHT/2),(sprite_width,sprite_height))
+cloud0 = model.Cloud((WIDTH/2, HEIGHT/2),(100,200))
 
 
 if __name__ == '__main__':
