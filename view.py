@@ -16,20 +16,13 @@ nest_width = 100
 nest_height = 50
 
 
-# Creating clouds
-cloud_img = pygame.image.load('images/cloud.png')
-cloud_img = pygame.transform.scale(cloud_img, (cloud_width,cloud_height))
+class Screen:
 
-# Sprite definition
-sprite_img = pygame.image.load('images/bird2.png')
-sprite_img = pygame.transform.scale(sprite_img, (sprite_width,sprite_height))
+    def load_image(element):
+        # Creating clouds
+        img = pygame.image.load(element.image)  #figure out how to save
+        img = pygame.transform.scale(img, (element.width, element.height))
 
-# Creating bricks
-brick_img = pygame.image.load('images/brick.png')
-
-#Creating a free floating nest (maybe later create an image of the nest on a brick?)
-nest_img = pygame.image.load('images/nest.png')
-nest_img = pygame.transform.scale(nest_img, (nest_width,nest_height))
 
 
 cloud0 = GameElement((WIDTH/2, HEIGHT/2),(100,200),1)
@@ -43,7 +36,7 @@ if __name__ == '__main__':
     pygame.display.set_caption('Flappy Bird!')
 
     while True:
-        
+        #controller.checkBoundaries(GameElement, screen.width)
         screen.fill((135,206,250))
         screen.blit(cloud_img, (cloud0.x, cloud0.y))
 
