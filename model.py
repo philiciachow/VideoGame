@@ -1,4 +1,4 @@
-### Video Game Model
+### Video Game MODEL
 
 ### What the objects do and how it moves.
 
@@ -7,7 +7,17 @@
 from random import randint
 
 
-class Object:
+cloud_width = 200
+cloud_height = 100
+
+sprite_width = 50
+sprite_height = 50
+
+nest_width = 100
+nest_height = 50
+
+
+class GameElement:
     ''' Parent class for game elements: Brick, Cloud, Sprite, and Nest.  We define the attributes: x position, y position, object width, object height, object speed; and the methods: load_image, reset, and update.
     '''
 
@@ -18,22 +28,61 @@ class Object:
         self.height = size[1]
         self.speed = speed
 
+
+    #  TESTING
+    def __str__(self):
+        return "pos " + str(self.x) + ", " + str(self.y) + " size " + str(self.width) + ", " + str(self.height) + " speed " + str(self.speed)
+
     # def load_image():
 
-    # def reset():
+    def reset():
+        ''' When game element moves all the way left, loop it back to the right side of the screen.
+        '''
 
-    # def update():
+        if self.x < -self.width:
+            self.x = screen.width
 
 
-class Cloud(Object):
+    def update():
+        ''' Changes x position left by the child speed.
+        '''
+
+        self.x = self.x - self.speed
+
+
+class Cloud(GameElement):
+    pass
+
+
+class Brick(GameElement):
+    pass
+
+
+class Nest(GameElement):
+    pass
+
+
+class Sprite(GameElement):
+    pass
+
+
+if __name__ == '__main__':
+    cloud0 = Cloud((100,100), (100,100), 2)
+    print cloud0
 
 
 
-class Sprite(Thing):
 
-    def __init__(self, x, y, width, height):
-        Thing.__init__(self, x, y, width, height)
-        self.dead = False
+
+
+
+
+
+# class Sprite(GameElement):
+
+#     def __init__(self, x, y, width, height):
+#         Thing.__init__(self, x, y, width, height)
+#         self.dead = False
 
 
 
