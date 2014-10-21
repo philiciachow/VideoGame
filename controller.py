@@ -19,6 +19,8 @@ def collisions(element1, element2):
 
 
 def move(element, distance, direction):
+    ''' Moves game element depending on direction.
+    '''
     
     if direction == 'left':
         element.x -= distance
@@ -30,5 +32,9 @@ def move(element, distance, direction):
         element.y += distance
 
 
-def checkBoundaries(element, x):
-    pass
+def checkBoundaries(element, x, width):
+    ''' Checks if element passes left side of screen.  Once that happens, VIEW resets.
+    '''
+
+    if x < -width:
+        print "time to reset!"
