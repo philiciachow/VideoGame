@@ -1,5 +1,8 @@
 ### Video Game Model
 
+# THere should be no functionality in model; it just has class definition.
+# Acts as a skeleton.
+
 ### What the objects do and how it moves.
 
 # import pygame, sys

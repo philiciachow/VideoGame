@@ -3,7 +3,7 @@
 import pygame, sys
 from pygame.locals import *
 import model
-import controller
+# import controller
 
 
 WIDTH = 800
@@ -59,18 +59,19 @@ if __name__ == '__main__':
             screen.blit(pygame.transform.scale(brick_img, (brick.width, brick.height)), \
                     (brick.x, brick.y))
 
+        # TAKE USER KEYBOARD INPUT
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
-
             if event.type == pygame.KEYDOWN:
-                if event.key == K_UP:
-                    print "key UP"
-                if event.key == K_DOWN:
-                    print "key DOWN"
+                if event.key == K_SPACE:
+                    print "SPACE BARRRR"
 
-                screen.blit(sprite_img,(mygame.sprite.x, mygame.sprite.y))
+
+            screen.blit(sprite_img,(mygame.sprite.x, mygame.sprite.y))
+
+
 
         # screen.blit(nest_img, (WIDTH/2, 5*HEIGHT/6)) 
         
