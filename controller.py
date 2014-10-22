@@ -20,6 +20,8 @@ def collisions(element1, element2, tolerance = 0):
 
 
 def move(element, distance, direction):
+    ''' Moves game element depending on direction.
+    '''
     
     if direction == 'left':
         element.x -= distance

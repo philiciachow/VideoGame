@@ -6,10 +6,8 @@ from random import randint
 # Global Elements
 cloud_width = 200
 cloud_height = 100
-
 sprite_width = 50
 sprite_height = 50
-
 nest_width = 100
 nest_height = 50
 
@@ -31,16 +29,12 @@ class GameElement(object):
         return "pos " + str(self.x) + ", " + str(self.y) + " size " + str(self.width) + ", " + str(self.height) + " speed " + str(self.speed)
 
  
-    def update():
-        ''' Changes x position left by the child speed.
-        '''
-        self.x = self.x - self.speed
-
+## CHILD CLASSES INHERITING FROM GAMEELEMENT
 
 class Cloud(GameElement):
     def __init__(self, pos):
         super(Cloud, self).__init__(pos, (cloud_width, cloud_height), 2, 'images/cloud.png')
-    
+
 
 class Brick(GameElement):
     def __init__(self, pos, size):

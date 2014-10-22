@@ -10,15 +10,11 @@ import controller
 WIDTH = 800
 HEIGHT = 600
 NEST_TIME = 60000  # time in milliseconds for the nest to pop on the screen
-# cloud_width = 200
-# cloud_height = 100
-# sprite_width = 50
-# sprite_height = 50
-# nest_width = 100
-# nest_height = 50
 
 
 class Screen:
+    ''' Load game element images.
+    '''
 
     def __init__(self, size, title = "Flappy Bird!"):
         self.display = pygame.display.set_mode((size[0], size[1]))
@@ -36,7 +32,6 @@ class Screen:
 
         # Creating Image
         element.image = pygame.transform.scale(pygame.image.load(element.imgPath), (element.width, element.height))
-
         self.elements[class_def].append(element)
 
         return element
