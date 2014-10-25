@@ -59,7 +59,7 @@ class Screen:
                 return   # bricks bounce backwards..... fix this???
 
         # sprite falls
-        if self.sprite.y >= HEIGHT - self.sprite.height + 10:
+        if self.sprite.y >= HEIGHT - self.sprite.height + 10 or self.sprite.y <= 0:
             self.sprite.dead = True
             return 
         if screen.spacebar:
@@ -92,11 +92,9 @@ if __name__ == "__main__":
 
     # starting positions for each element
     screen.sprite = screen.load_element(model.Sprite, (WIDTH/5, HEIGHT/3))
-
     [screen.load_element(model.Cloud, pos) for pos in [(100,200), (500,150), (350,50), (800,70)]]
-
     [screen.load_element(model.Brick, pos, size = (randint(50,200), randint(50,200))) for pos in [(500,150), (350,50), (800,70)]]
-
+    
     clock = pygame.time.Clock()
 
     while not screen.sprite.dead:
@@ -119,9 +117,7 @@ if __name__ == "__main__":
             if event.type == pygame.KEYUP:  # detects when spacebar is released
                 if event.key == K_SPACE:
                     screen.spacebar = False
-
-
-                
+             
         pygame.display.update()
         clock.tick(40)
 

@@ -2,6 +2,7 @@
 
 """
 Controller handles collisions as well as user input actions.
+It also checks boundaries for looping the elements back around and for sprite deaths. 
 """
 
 from random import randint
