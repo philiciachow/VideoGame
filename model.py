@@ -30,7 +30,6 @@ class GameElement(object):
 
  
 ## CHILD CLASSES INHERITING FROM GAMEELEMENT
-
 class Cloud(GameElement):
     def __init__(self, pos):
         super(Cloud, self).__init__(pos, (cloud_width, cloud_height), 2, 'images/cloud.png')

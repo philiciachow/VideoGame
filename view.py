@@ -10,6 +10,7 @@ import controller
 WIDTH = 800
 HEIGHT = 600
 NEST_TIME = 60000  # time in milliseconds for the nest to pop on the screen
+FPS = 40  # frames per second
 
 
 class Screen:
@@ -79,8 +80,49 @@ class Screen:
             controller.move(self.sprite, 2, "down")
             self.blit()
             pygame.display.update()
-            clock.tick(40)
+            clock.tick(FPS)
 
+
+### from http://tnbforum.com/viewtopic.php?f=123&t=30184
+# class Menu:
+#     ''' Menu screen for game
+#     '''
+#     hovered = False
+#     clicked = False
+
+#     def __init__(self, text, pos):
+#         self.text = text
+#         self.pos = pos
+#         self.set_rect()
+#         self.draw()
+
+#     def draw(self):
+#         self.set_rend()
+#         screen.blit(self.rend, self.rect)
+
+#     def set_rend(self):
+#         self.rend = menu_font.render(self.text, True, self.get_color())
+
+#     def get_color(self):
+#         if self.hovered:
+#             if self.clicked:
+#                 return (255, 0, 0)
+#             else:
+#                 return (255, 255, 255)
+
+#         else:
+#             return (100, 100, 100)
+
+#     def set_rect(self):
+#         self.set_rend()
+#         self.rect = self.rend.get_rect()
+#         self.rect.topleft = self.pos
+
+#     def new_window(self):
+#         if self.clicked:
+#             screen.fill((159, 182, 205))
+#         else:
+#             pass
 
 
 
@@ -89,6 +131,8 @@ if __name__ == "__main__":
     nest_made = False
 
     screen = Screen(size = (WIDTH, HEIGHT))
+    # menu_font = pygame.font.Font(None, 40)
+    # menu = [Menu("Start", (140, 105)), Menu("How to Play", (145, 155)), Menu("Exit", (185, 205))]
 
     # starting positions for each element
     screen.sprite = screen.load_element(model.Sprite, (WIDTH/5, HEIGHT/3))
@@ -117,9 +161,24 @@ if __name__ == "__main__":
             if event.type == pygame.KEYUP:  # detects when spacebar is released
                 if event.key == K_SPACE:
                     screen.spacebar = False
+
+        # pygame.event.pump()
+        # for menu in menus:
+        #     if menu.rect.collidepoint(pygame.mouse.get_pos()):
+        #         menu.hovered = True
+        #         if pygame.mouse.get_pressed() == (1, 0, 0):
+        #             menu.clicked = True
+        #         else: 
+        #             menu.clicked = False
+        #     else:
+        #         menu.hovered = False
+        #         menu.clicked = False
+        #     menu.draw()
+        #     menu.new_window()
              
         pygame.display.update()
-        clock.tick(40)
+        clock.tick(FPS)
 
     screen.gameover()
     print "Game Over"
+
