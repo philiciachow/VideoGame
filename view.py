@@ -12,12 +12,15 @@ HEIGHT = 600
 NEST_TIME = 60000  # time in milliseconds for the nest to pop on the screen
 FPS = 40  # frames per second
 
+# Play theme song: Dreams of Above by Maze Master
 pygame.mixer.init()
 pygame.mixer.music.load('audio/dreams_of_above.mp3')
 pygame.mixer.music.play(1)
 
+
 class Screen:
-    ''' Load game element images.
+    '''
+    Load game element images.
     '''
 
     def __init__(self, size, title = "Flappy Bird!"):
