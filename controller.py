@@ -8,11 +8,11 @@ It also checks boundaries for looping the elements back around and for sprite de
 from random import randint
 
 def collisions(element1, element2, tolerance = 0):
-    """
-    check to see if the a line is overlapping/colliding with the b line
+    ''' 
+    Check to see if the a line is overlapping/colliding with the b line.
     element1.x ------------ element1.x + element1.width
             element2.x ---------------- element2.x + element2.width
-    """
+    '''
 
     return ((((element2.x) - (element1.x + element1.width) + tolerance) * ((element2.x) - (element1.x) + tolerance)) <= 0 \
         or (((element1.x) - (element2.x + element2.width) + tolerance) * ((element1.x + element1.width) - (element2.x + element2.width) + tolerance)) <= 0) \
@@ -21,7 +21,8 @@ def collisions(element1, element2, tolerance = 0):
 
 
 def move(element, distance, direction):
-    ''' Moves game element depending on direction.
+    ''' 
+    Moves game element depending on direction.
     '''
     
     if direction == 'left':
@@ -35,6 +36,9 @@ def move(element, distance, direction):
 
 
 def checkBoundaries(element, bound, newY = ()):
+    '''
+    Check to see if an element has passed the left screen.
+    '''
 
     if element.x <= - element.width or element.x >= bound + element.width:
         element.x = bound
