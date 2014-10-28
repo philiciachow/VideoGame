@@ -9,7 +9,7 @@ import controller
 
 WIDTH = 800
 HEIGHT = 600
-NEST_TIME = 1000  # time in milliseconds for the nest to pop on the screen
+NEST_TIME = 60000  # time in milliseconds for the nest to pop on the screen
 FPS = 40  # frames per second
 
 
@@ -95,9 +95,11 @@ class Screen:
             self.blit_game()
             pygame.display.update()
             clock.tick(FPS)
-        
+        pygame.event.get()  # clear event queue
 
+        
     def reset(self):
+        self.start_time = pygame.time.get_ticks()
         self.elements = {model.Cloud:[], model.Brick:[], model.Sprite:[], model.Nest:[]}
         self.spacebar = False
         
@@ -152,8 +154,8 @@ def main():
         screen.update()
         screen.blit_game()
 
-        if not screen.nest_made and pygame.time.get_ticks() > NEST_TIME:
-            screen.nest = screen.load_element(model.Nest, (WIDTH/2, 5*HEIGHT/6))
+        if not screen.nest_made and (pygame.time.get_ticks() - screen.start_time) > NEST_TIME:
+            screen.nest = screen.load_element(model.Nest, (WIDTH, 5*HEIGHT/6))
             screen.nest_made = True
 
         # Quit statement; allows the screen to stay.
@@ -176,8 +178,8 @@ def main():
 
 def showGameOver():
     gameOverFont = pygame.font.Font(pygame.font.get_default_font(), 150)
-    gameSurf = gameOverFont.render('Game', True, (0,0,0))
-    overSurf = gameOverFont.render('Over', True, (0,0,0))
+    gameSurf = gameOverFont.render('Game', True, (225,0,0))
+    overSurf = gameOverFont.render('Over', True, (225,0,0))
     gameRect = gameSurf.get_rect()
     overRect = overSurf.get_rect()
     gameRect.midtop = (WIDTH / 2, 10)
@@ -200,8 +202,8 @@ def showGameOver():
 
 def showWinGame():
     winGameFont = pygame.font.Font(pygame.font.get_default_font(), 150)
-    winSurf = winGameFont.render('You', True, (0,0,0))
-    gameSurf = winGameFont.render('Win!', True, (0,0,0))
+    winSurf = winGameFont.render('You', True, (0,200,0))
+    gameSurf = winGameFont.render('Win!', True, (0,200,0))
     winRect = winSurf.get_rect()
     gameRect = gameSurf.get_rect()
     winRect.midtop = (WIDTH / 2, 10)
