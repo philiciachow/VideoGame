@@ -1,4 +1,7 @@
 ### Video Game MODEL
+"""
+Define classes and inheritance for game element.
+"""
 
 
 from random import randint
@@ -13,7 +16,8 @@ nest_height = 50
 
 
 class GameElement(object):
-    ''' Parent class for game elements: Brick, Cloud, Sprite, and Nest.  We define the attributes: x position, y position, object width, object height, object speed; and the methods: load_image, reset, and update.
+    ''' 
+    Parent class for game elements: Brick, Cloud, Sprite, and Nest.  We define the attributes: x position, y position, object width, object height, object speed; and the methods: load_image, reset, and update.
     '''
     def __init__(self, pos, size, speed, imgPath):  # Note: pos and size are tuples.
         self.x = pos[0]
@@ -24,12 +28,14 @@ class GameElement(object):
         self.imgPath = imgPath
 
 
-    #  TESTING
-    def __str__(self):
+    def __str__(self):     #  TESTING
         return "pos " + str(self.x) + ", " + str(self.y) + " size " + str(self.width) + ", " + str(self.height) + " speed " + str(self.speed)
 
  
-## CHILD CLASSES INHERITING FROM GAMEELEMENT
+
+'''
+The classes Cloud, Brick, Nest, and Sprite inherit from GameElement.
+'''
 class Cloud(GameElement):
     def __init__(self, pos):
         super(Cloud, self).__init__(pos, (cloud_width, cloud_height), 2, 'images/cloud.png')
