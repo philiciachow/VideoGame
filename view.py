@@ -16,7 +16,7 @@ FPS = 40  # frames per second
 # Play theme song: Dreams of Above by Maze Master
 pygame.mixer.init()
 pygame.mixer.music.load('audio/dreams_of_above.mp3')
-pygame.mixer.music.play(1)
+pygame.mixer.music.play(5)
 
 
 class Screen:
@@ -113,7 +113,7 @@ def drawPressKeyMsg():
     global FPSCLOCK, DISPLAYSURF, BASICFONT
 
     BASICFONT = pygame.font.Font(pygame.font.get_default_font(), 18)
-    pressKeySurf = BASICFONT.render('Press any key to play.', True, (40,40,40))
+    pressKeySurf = BASICFONT.render('Press the spacebar to play and fly.', True, (40,40,40))
     pressKeyRect = pressKeySurf.get_rect()
     pressKeyRect.topleft = (WIDTH/2, HEIGHT/2 + 100)
     screen.display.blit(pressKeySurf, pressKeyRect)
@@ -132,8 +132,6 @@ def checkForKeyPress():
 
 
 def menu():
-    titleFont = pygame.font.Font(pygame.font.get_default_font(), 100)
-    title = titleFont.render('Flappy Bird!', True, (0,0,0))
 
     while True:
         screen.blit_menu()
